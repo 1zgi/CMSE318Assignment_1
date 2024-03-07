@@ -1,14 +1,4 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print("Welcome to Student Information System!\nFunctions:\n1-Add a New Student\t\t2-Find a Student\n"
+      "3-Show All Students\t\t4-Show Students by Birth Date\n5-Delete a Student\t\t6-Enter Whole Data to File\n"
+      "7-Modify Student Information\n8-Get the Data From .txt to Array\n9-Quit")
+choice=int(input("Type function's Number: "))
