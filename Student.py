@@ -45,5 +45,9 @@ class Student:
     def set_country_of_birth(self, country_of_birth):
         self.__country_of_birth = country_of_birth
 
+    def print_all_info(self):
+        print("Student Number: "+self.get_student_number()+"\nName: "+self.get_first_name()+
+              "\nSurname: "+self.get_last_name()+"\nBirth Date: "+self.get_date_of_birth()+"\nGender: "+
+              self.get_sex()+"\nCountry of Birth: "+self.get_country_of_birth())
 
 classroom = [None] * 100
