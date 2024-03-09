@@ -38,3 +38,9 @@ class FileOp:
                 isStudentExist=True
         if not isStudentExist:
             print("There is no person in this birth date.")
+    def modifyStudent(self,stdNum,students):
+        for student in students:
+            if(student.get_student_number()==stdNum):
+                print("Which information would you like to change?"
+                      "1-Name   2-Surname\n"
+                      "3-")
