@@ -56,8 +56,9 @@ class StudentService:
         if operation == "6":
             return False
 
-    def find_by_birth_year(self,birth_year, students):
-        self.file.readFromFile()
+    def find_by_birth_year(self,birth_year):
+        file=FileOp()
+        students=file.readFromFile()
         is_student_exist = False
         for student in students:
             if student.get_date_of_birth()[-4:] == birth_year:

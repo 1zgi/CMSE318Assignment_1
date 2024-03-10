@@ -1,7 +1,7 @@
 from array import *
 from Student import Student
 class FileOp:
-    def arrayToFile(students):
+    def arrayToFile(self,students):
         stdFile=open("students.txt","a")#file opened in append mode
         stdString=""
         for student in students:
@@ -20,27 +20,25 @@ class FileOp:
             students.append(tmpStd)
         return students
 
-    def deleteStudent(self,stdNum,students):
-        self.readFromFile()
+    def deleteStudent(self,stdNum):
+        students=self.readFromFile()
         j=0
         isNumExist=True#if number is not exist, second if condition will work
         for student in students:
             if student.get_student_number()==stdNum:#checks entered value
                 students.pop(j)
+                print("Student with following information deleted from file.")
+                student.print_all_info()
                 isNumExist=False
             j += 1
+        self.arrayToFile(students)
+        stdFile = open("students.txt", "w")  # file opened in append mode
+        stdString = ""
+        for student in students:
+            stdString += student.get_student_number() + "-" + student.get_first_name() + "-" + student.get_last_name() + "-" + student.get_date_of_birth() + "-" + student.get_sex() + "-" + student.get_country_of_birth() + "%"
+        stdFile.write(stdString)
         if isNumExist:
             print("There is no student have this student number.")
-
-    def findByBirthYear(self,birthYear,students):
-        self.readFromFile()
-        isStudentExist=False
-        for student in students:
-            if(student.get_date_of_birth()[-4:]==birthYear):
-                student.print_all_info()
-                isStudentExist=True
-        if not isStudentExist:
-            print("There is no person in this birth date.")
     def modifyStudent(self,stdNum,students):
         for student in students:
             if(student.get_student_number()==stdNum):

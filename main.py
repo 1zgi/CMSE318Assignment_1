@@ -1,6 +1,7 @@
 from StudentService import StudentService
-
+from FileOp import FileOp
 system = StudentService()
+file=FileOp()
 
 print("Welcome to Student Information System!\nFunctions:\n1-Add a New Student\t\t2-Find a Student\n"
       "3-Show All Students\t\t4-Show Students by Birth Date\n5-Delete a Student\t\t6-Enter Whole Data to File\n"
@@ -26,8 +27,12 @@ def switch(_choice):
         system.show_all_students()
         return "Show All Students"
     elif _choice == 4:
+        birthDate=input("Please enter birth date: ")
+        system.find_by_birth_year(birthDate)
         return "Show Students by Birth Date"
     elif _choice == 5:
+        stdNum=input("Enter the number of the student you want to delete: ")
+        file.deleteStudent(stdNum)
         return "Delete a Student"
     elif _choice == 6:
         return "Enter Whole Data to File"
