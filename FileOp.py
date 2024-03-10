@@ -10,7 +10,8 @@ class FileOp:
         stdString=stdString[:len(stdString)-1]#deletes unrelevant "%" sign
         stdFile.write(stdString)
         stdFile.close()
-    def readFromFile(self,students):
+    def readFromFile(self):
+        students = []
         stdFile=open("students.txt","r")
         stdString=stdFile.read()
         tempStudents=stdString.split("%")#splits students from eachother
@@ -18,6 +19,8 @@ class FileOp:
             tmpList=student.split("-")#splits students datas from eachother
             tmpStd=Student(tmpList[0],tmpList[1],tmpList[2],tmpList[3],tmpList[4],tmpList[5])
             students.append(tmpStd)
+        return students
+
     def deleteStudent(self,stdNum,students):
         self.readFromFile()
         j=0
@@ -45,4 +48,4 @@ class FileOp:
                 print("Which information would you like to change?"
                       "1-Name   2-Surname\n"
                       "3-")
-                
+
