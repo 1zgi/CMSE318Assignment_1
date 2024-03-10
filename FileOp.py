@@ -1,7 +1,8 @@
 from array import *
 from Student import Student
 class FileOp:
-    def arrayToFile(self,students):
+    @staticmethod
+    def arrayToFile(students):
         stdFile=open("students.txt","a")#file opened in append mode
         stdString=""
         for student in students:
@@ -44,3 +45,4 @@ class FileOp:
                 print("Which information would you like to change?"
                       "1-Name   2-Surname\n"
                       "3-")
+                
