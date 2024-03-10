@@ -19,10 +19,11 @@ def switch(_choice):
         system.add_student(student_number, first_name, last_name, date_of_birth, sex, country_of_birth)
         return "Add a New Student"
     elif _choice == 2:
-        student_id = str(input("Enter a student number to find: "))
+        student_id = input("Enter a student number to find: ")
         system.find_student_by_number(student_id)
         return "Find a Student"
     elif _choice == 3:
+        system.show_all_students()
         return "Show All Students"
     elif _choice == 4:
         return "Show Students by Birth Date"

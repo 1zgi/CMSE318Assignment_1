@@ -16,10 +16,20 @@ class StudentService:
             Student(student_number, first_name, last_name, date_of_birth, sex, country_of_birth))
         self.file.arrayToFile(self.__students_list)  # write student to the file
 
-    def find_student_by_number(self, number):
-        for student in self.student.get_student_number(number):
-            if number == self.student.get_student_number(number):
-                student.print_all_info(student)
+
+    @staticmethod
+    def find_student_by_number(number):
+        checker=True
+        fileOpInstance = FileOp()
+        students=fileOpInstance.readFromFile()
+        for student in students:
+            if student.get_student_number()==number:
+                student.print_all_info()
+                checker=False
+        if checker:
+            print("There is no record!")
+
+
 
     def modify_student(self, operation, student_num):
         self.find_student_by_number(student_num)
@@ -55,3 +65,9 @@ class StudentService:
                 is_student_exist = True
         if not is_student_exist:
             print("There is no person in this birth date.")
+    def show_all_students(self):
+        fileOpInstance = FileOp()
+        students=fileOpInstance.readFromFile()
+
+        for student in students:
+            student.print_all_info()

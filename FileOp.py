@@ -1,19 +1,18 @@
 from array import *
 from Student import Student
 class FileOp:
-    @staticmethod
     def arrayToFile(students):
         stdFile=open("students.txt","a")#file opened in append mode
         stdString=""
         for student in students:
             stdString+=student.get_student_number()+"-"+student.get_first_name()+"-"+student.get_last_name()+"-"+student.get_date_of_birth()+"-"+student.get_sex()+"-"+student.get_country_of_birth()+"%"
-        stdString=stdString[:len(stdString)-1]#deletes unrelevant "%" sign
         stdFile.write(stdString)
         stdFile.close()
     def readFromFile(self):
         students = []
         stdFile=open("students.txt","r")
         stdString=stdFile.read()
+        stdString=stdString[:-1]
         tempStudents=stdString.split("%")#splits students from eachother
         for student in tempStudents:
             tmpList=student.split("-")#splits students datas from eachother
