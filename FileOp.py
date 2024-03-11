@@ -8,6 +8,13 @@ class FileOp:
             stdString+=student.get_student_number()+"-"+student.get_first_name()+"-"+student.get_last_name()+"-"+student.get_date_of_birth()+"-"+student.get_sex()+"-"+student.get_country_of_birth()+"%"
         stdFile.write(stdString)
         stdFile.close()
+    def arrayToFileWriteMode(self,students):
+        stdFile=open("students.txt","w")#file opened in append mode
+        stdString=""
+        for student in students:
+            stdString+=student.get_student_number()+"-"+student.get_first_name()+"-"+student.get_last_name()+"-"+student.get_date_of_birth()+"-"+student.get_sex()+"-"+student.get_country_of_birth()+"%"
+        stdFile.write(stdString)
+        stdFile.close()
     def readFromFile(self):
         students = []
         stdFile=open("students.txt","r")
@@ -27,8 +34,6 @@ class FileOp:
         for student in students:
             if student.get_student_number()==stdNum:#checks entered value
                 students.pop(j)
-                print("Student with following information deleted from file.")
-                student.print_all_info()
                 isNumExist=False
             j += 1
         self.arrayToFile(students)
