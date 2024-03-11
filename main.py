@@ -17,12 +17,15 @@ def switch():#for organizing every option in one method
         sex = str(input("Sex: "))
         country_of_birth = str(input("Country of Birth: "))
         system.add_student(student_number, first_name, last_name, date_of_birth, sex, country_of_birth)
+        print("Student added successfully!")
 
     elif choice == 2:
         student_id = input("Enter a student number to find: ")
         student=system.find_student_by_number(student_id)
         if student!=None:
             student.print_all_info()
+        else:
+            print("No information with this student number")
     elif choice == 3:
         system.show_all_students()
     elif choice == 4:
@@ -30,10 +33,10 @@ def switch():#for organizing every option in one method
         system.find_by_birth_year(birthDate)
     elif choice == 5:
         stdNum=input("Enter the number of the student you want to delete: ")
-        file.deleteStudent(stdNum)
-        student=system.find_student_by_number(stdNum)
+        student = system.find_student_by_number(stdNum)
         print("Student with following information deleted from file.")
         student.print_all_info()
+        file.deleteStudent(stdNum)
     elif choice == 6:
         while True:
             student_num = str(input("Enter a student number to modify: "))
