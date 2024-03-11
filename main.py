@@ -6,7 +6,7 @@ students=[]#list defined globally for file i/o purposes
 print("Welcome to Student Information System!")
 def switch():#for organizing every option in one method
     print("Functions:\n1-Add a New Student\t\t2-Find a Student\n"
-          "3-Show All Students\t\t4-Show Students by Birth Date\n5-Delete a Student\t\t6-Modify Student Information\n"
+          "3-Show All Students\t\t4-Show Students by Birth Years\n5-Delete a Student\t\t6-Modify Student Information\n"
           "7-Get the Data From .txt to Array\n8-Quit")
     choice = int(input("Type function's Number: "))
     if choice == 1:#inputs taken and sent with calling add student method
@@ -29,7 +29,7 @@ def switch():#for organizing every option in one method
     elif choice == 3:
         system.show_all_students()
     elif choice == 4:
-        birthDate=input("Please enter birth date: ")
+        birthDate=input("Please enter birth year: ")
         system.find_by_birth_year(birthDate)
     elif choice == 5:
         stdNum=input("Enter the number of the student you want to delete: ")
