@@ -1,3 +1,4 @@
+
 class Student:
     def __init__(self, student_number, first_name, last_name, date_of_birth, sex, country_of_birth):
         self.__student_number = student_number
@@ -45,5 +46,7 @@ class Student:
     def set_country_of_birth(self, country_of_birth):
         self.__country_of_birth = country_of_birth
 
-
-classroom = [None] * 100
+    def print_all_info(self):#prints all the information about student
+        print("Student Number: " + self.get_student_number() + "\nName: " + self.get_first_name() +
+              "\nSurname: " + self.get_last_name() + "\nBirth Date: " + self.get_date_of_birth() + "\nGender: " +
+              self.get_sex() + "\nCountry of Birth: " + self.get_country_of_birth())
